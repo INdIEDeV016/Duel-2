@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.365672, 0.607955 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+emitting = false
+amount = 5
+one_shot = true
+explosiveness = 0.88
+randomness = 1.0
+lifetime_randomness = 0.61
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 117.48
+initial_velocity_random = 0.1
+angular_velocity = 276.12
+angular_velocity_random = 1.0
+linear_accel = -15.18
+linear_accel_random = 1.0
+angle = 9.6
+angle_random = 1.0
+scale_amount = 45.6
+scale_amount_random = 0.42
+scale_amount_curve = SubResource( 1 )

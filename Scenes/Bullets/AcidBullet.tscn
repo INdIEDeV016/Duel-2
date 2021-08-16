@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Box.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Bullets/AcidBullet.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 4.8264, 4.84405 )
+
+[sub_resource type="Curve" id=2]
+_data = [ Vector2( 0, 1.00218 ), 0.0, -0.0779128, 0, 0, Vector2( 0.861925, 0.368182 ), 0.0, -6.01185, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="AcidBullet" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Icon" type="Node2D" parent="."]
+modulate = Color( 0, 0.239216, 0.0666667, 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Icon"]
+amount = 30
+lifetime = 0.72
+lifetime_randomness = 1.0
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 38.9
+scale_amount = 7.95
+scale_amount_curve = SubResource( 2 )
+
+[node name="Box" type="Sprite" parent="Icon"]
+position = Vector2( 3.8147e-06, -3.8147e-06 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_AcidBullet_body_entered"]

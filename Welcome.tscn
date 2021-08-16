@@ -1,0 +1,190 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Welcome.gd" type="Script" id=1]
+[ext_resource path="res://Theme.theme" type="Theme" id=2]
+[ext_resource path="res://Scenes/Map/TileMap.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Pickups/Speed_Pickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Pickups/Health_Pickup.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Main.gd" type="Script" id=6]
+[ext_resource path="res://DummyPlayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Classes/RandomTileMapGen.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Camera2D.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Pickups/Destroy_Pickup.tscn" type="PackedScene" id=10]
+[ext_resource path="res://PickupsManager.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Pickups/Acid_Pickup.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Pickups/Companion_Pickup.tscn" type="PackedScene" id=13]
+
+[sub_resource type="Environment" id=1]
+background_mode = 4
+background_canvas_max_layer = 1
+auto_exposure_enabled = true
+auto_exposure_scale = 10.39
+auto_exposure_min_luma = 1.17
+glow_enabled = true
+glow_intensity = 0.05
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="TileMap" parent="." instance=ExtResource( 3 )]
+modulate = Color( 0, 0.0900001, 0.6, 1 )
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 0, 28, 0, 0, 29, 0, 0, 30, 0, 0, 31, 0, 0, 32, 0, 0, 33, 0, 0, 34, 0, 0, 35, 0, 0, 36, 0, 0, 37, 0, 0, 38, 0, 0, 39, 0, 0, 40, 0, 0, 41, 0, 0, 42, 0, 0, 43, 0, 0, 44, 0, 0, 45, 0, 0, 46, 0, 0, 47, 0, 0, 48, 0, 0, 49, 0, 0, 50, 0, 0, 51, 0, 0, 52, 0, 0, 53, 0, 0, 54, 0, 0, 55, 0, 0, 56, 0, 0, 57, 0, 0, 58, 0, 0, 59, 0, 0, 60, 0, 0, 61, 0, 0, 62, 0, 0, 63, 0, 0, 64, 0, 0, 65, 0, 0, 66, 0, 0, 67, 0, 0, 68, 0, 0, 69, 0, 0, 70, 0, 0, 71, 0, 0, 72, 0, 0, 73, 0, 0, 74, 0, 0, 75, 0, 0, 76, 0, 0, 77, 0, 0, 78, 0, 0, 79, 0, 0, 80, 0, 0, 81, 0, 0, 82, 0, 0, 83, 0, 0, 84, 0, 0, 85, 0, 0, 86, 0, 0, 87, 0, 0, 88, 0, 0, 89, 0, 0, 90, 0, 0, 91, 0, 0, 92, 0, 0, 93, 0, 0, 94, 0, 0, 95, 0, 0, 96, 0, 0, 97, 0, 0, 98, 0, 0, 99, 0, 0, 100, 0, 0, 101, 0, 0, 102, 0, 0, 103, 0, 0, 104, 0, 0, 105, 0, 0, 106, 0, 0, 107, 0, 0, 108, 0, 0, 109, 0, 0, 110, 0, 0, 111, 0, 0, 112, 0, 0, 113, 0, 0, 114, 0, 0, 115, 0, 0, 116, 0, 0, 117, 0, 0, 118, 0, 0, 119, 0, 0, 120, 0, 0, 121, 0, 0, 122, 0, 0, 123, 0, 0, 124, 0, 0, 125, 0, 0, 126, 0, 0, 127, 0, 0, 128, 0, 0, 129, 0, 0, 130, 0, 0, 131, 0, 0, 132, 0, 0, 133, 0, 0, 134, 0, 0, 135, 0, 0, 136, 0, 0, 137, 0, 0, 138, 0, 0, 139, 0, 0, 140, 0, 0, 141, 0, 0, 142, 0, 0, 143, 0, 0, 144, 0, 0, 145, 0, 0, 146, 0, 0, 147, 0, 0, 148, 0, 0, 149, 0, 0, 150, 0, 0, 151, 0, 0, 152, 0, 0, 153, 0, 0, 154, 0, 0, 155, 0, 0, 156, 0, 0, 157, 0, 0, 158, 0, 0, 159, 0, 0, 160, 0, 0, 161, 0, 0, 162, 0, 0, 163, 0, 0, 164, 0, 0, 165, 0, 0, 166, 0, 0, 167, 0, 0, 168, 0, 0, 169, 0, 0, 170, 0, 0, 171, 0, 0, 172, 0, 0, 173, 0, 0, 174, 0, 0, 175, 0, 0, 176, 0, 0, 177, 0, 0, 178, 0, 0, 179, 0, 0, 180, 0, 0, 181, 0, 0, 182, 0, 0, 183, 0, 0, 184, 0, 0, 185, 0, 0, 186, 0, 0, 187, 0, 0, 188, 0, 0, 189, 0, 0, 190, 0, 0, 191, 0, 0, 192, 0, 0, 193, 0, 0, 194, 0, 0, 195, 0, 0, 196, 0, 0, 197, 0, 0, 198, 0, 0, 199, 0, 0, 200, 0, 0, 201, 0, 0, 202, 0, 0, 203, 0, 0, 204, 0, 0, 205, 0, 0, 206, 0, 0, 65536, 0, 0, 65742, 0, 0, 131072, 0, 0, 131278, 0, 0, 196608, 0, 0, 196814, 0, 0, 262144, 0, 0, 262350, 0, 0, 327680, 0, 0, 327886, 0, 0, 393216, 0, 0, 393422, 0, 0, 458752, 0, 0, 458958, 0, 0, 524288, 0, 0, 524494, 0, 0, 589824, 0, 0, 590030, 0, 0, 655360, 0, 0, 655566, 0, 0, 720896, 0, 0, 721102, 0, 0, 786432, 0, 0, 786638, 0, 0, 851968, 0, 0, 852174, 0, 0, 917504, 0, 0, 917710, 0, 0, 983040, 0, 0, 983246, 0, 0, 1048576, 0, 0, 1048782, 0, 0, 1114112, 0, 0, 1114318, 0, 0, 1179648, 0, 0, 1179854, 0, 0, 1245184, 0, 0, 1245390, 0, 0, 1310720, 0, 0, 1310926, 0, 0, 1376256, 0, 0, 1376462, 0, 0, 1441792, 0, 0, 1441998, 0, 0, 1507328, 0, 0, 1507534, 0, 0, 1572864, 0, 0, 1573070, 0, 0, 1638400, 0, 0, 1638606, 0, 0, 1703936, 0, 0, 1704142, 0, 0, 1769472, 0, 0, 1769678, 0, 0, 1835008, 0, 0, 1835214, 0, 0, 1900544, 0, 0, 1900750, 0, 0, 1966080, 0, 0, 1966286, 0, 0, 2031616, 0, 0, 2031822, 0, 0, 2097152, 0, 0, 2097358, 0, 0, 2162688, 0, 0, 2162894, 0, 0, 2228224, 0, 0, 2228430, 0, 0, 2293760, 0, 0, 2293966, 0, 0, 2359296, 0, 0, 2359502, 0, 0, 2424832, 0, 0, 2425038, 0, 0, 2490368, 0, 0, 2490574, 0, 0, 2555904, 0, 0, 2556110, 0, 0, 2621440, 0, 0, 2621646, 0, 0, 2686976, 0, 0, 2687182, 0, 0, 2752512, 0, 0, 2752718, 0, 0, 2818048, 0, 0, 2818254, 0, 0, 2883584, 0, 0, 2883790, 0, 0, 2949120, 0, 0, 2949326, 0, 0, 3014656, 0, 0, 3014862, 0, 0, 3080192, 0, 0, 3080398, 0, 0, 3145728, 0, 0, 3145934, 0, 0, 3211264, 0, 0, 3211470, 0, 0, 3276800, 0, 0, 3277006, 0, 0, 3342336, 0, 0, 3342542, 0, 0, 3407872, 0, 0, 3408078, 0, 0, 3473408, 0, 0, 3473614, 0, 0, 3538944, 0, 0, 3539150, 0, 0, 3604480, 0, 0, 3604686, 0, 0, 3670016, 0, 0, 3670222, 0, 0, 3735552, 0, 0, 3735758, 0, 0, 3801088, 0, 0, 3801294, 0, 0, 3866624, 0, 0, 3866830, 0, 0, 3932160, 0, 0, 3932366, 0, 0, 3997696, 0, 0, 3997902, 0, 0, 4063232, 0, 0, 4063438, 0, 0, 4128768, 0, 0, 4128974, 0, 0, 4194304, 0, 0, 4194510, 0, 0, 4259840, 0, 0, 4260046, 0, 0, 4325376, 0, 0, 4325582, 0, 0, 4390912, 0, 0, 4391118, 0, 0, 4456448, 0, 0, 4456654, 0, 0, 4521984, 0, 0, 4522190, 0, 0, 4587520, 0, 0, 4587726, 0, 0, 4653056, 0, 0, 4653262, 0, 0, 4718592, 0, 0, 4718798, 0, 0, 4784128, 0, 0, 4784334, 0, 0, 4849664, 0, 0, 4849870, 0, 0, 4915200, 0, 0, 4915406, 0, 0, 4980736, 0, 0, 4980942, 0, 0, 5046272, 0, 0, 5046478, 0, 0, 5111808, 0, 0, 5112014, 0, 0, 5177344, 0, 0, 5177550, 0, 0, 5242880, 0, 0, 5243086, 0, 0, 5308416, 0, 0, 5308622, 0, 0, 5373952, 0, 0, 5374158, 0, 0, 5439488, 0, 0, 5439694, 0, 0, 5505024, 0, 0, 5505230, 0, 0, 5570560, 0, 0, 5570766, 0, 0, 5636096, 0, 0, 5636302, 0, 0, 5701632, 0, 0, 5701838, 0, 0, 5767168, 0, 0, 5767374, 0, 0, 5832704, 0, 0, 5832910, 0, 0, 5898240, 0, 0, 5898446, 0, 0, 5963776, 0, 0, 5963982, 0, 0, 6029312, 0, 0, 6029518, 0, 0, 6094848, 0, 0, 6095054, 0, 0, 6160384, 0, 0, 6160590, 0, 0, 6225920, 0, 0, 6226126, 0, 0, 6291456, 0, 0, 6291662, 0, 0, 6356992, 0, 0, 6357198, 0, 0, 6422528, 0, 0, 6422734, 0, 0, 6488064, 0, 0, 6488270, 0, 0, 6553600, 0, 0, 6553806, 0, 0, 6619136, 0, 0, 6619342, 0, 0, 6684672, 0, 0, 6684878, 0, 0, 6750208, 0, 0, 6750414, 0, 0, 6815744, 0, 0, 6815950, 0, 0, 6881280, 0, 0, 6881486, 0, 0, 6946816, 0, 0, 6947022, 0, 0, 7012352, 0, 0, 7012558, 0, 0, 7077888, 0, 0, 7078094, 0, 0, 7143424, 0, 0, 7143630, 0, 0, 7208960, 0, 0, 7209166, 0, 0, 7274496, 0, 0, 7274497, 0, 0, 7274498, 0, 0, 7274499, 0, 0, 7274500, 0, 0, 7274501, 0, 0, 7274502, 0, 0, 7274503, 0, 0, 7274504, 0, 0, 7274505, 0, 0, 7274506, 0, 0, 7274507, 0, 0, 7274508, 0, 0, 7274509, 0, 0, 7274510, 0, 0, 7274511, 0, 0, 7274512, 0, 0, 7274513, 0, 0, 7274514, 0, 0, 7274515, 0, 0, 7274516, 0, 0, 7274517, 0, 0, 7274518, 0, 0, 7274519, 0, 0, 7274520, 0, 0, 7274521, 0, 0, 7274522, 0, 0, 7274523, 0, 0, 7274524, 0, 0, 7274525, 0, 0, 7274526, 0, 0, 7274527, 0, 0, 7274528, 0, 0, 7274529, 0, 0, 7274530, 0, 0, 7274531, 0, 0, 7274532, 0, 0, 7274533, 0, 0, 7274534, 0, 0, 7274535, 0, 0, 7274536, 0, 0, 7274537, 0, 0, 7274538, 0, 0, 7274539, 0, 0, 7274540, 0, 0, 7274541, 0, 0, 7274542, 0, 0, 7274543, 0, 0, 7274544, 0, 0, 7274545, 0, 0, 7274546, 0, 0, 7274547, 0, 0, 7274548, 0, 0, 7274549, 0, 0, 7274550, 0, 0, 7274551, 0, 0, 7274552, 0, 0, 7274553, 0, 0, 7274554, 0, 0, 7274555, 0, 0, 7274556, 0, 0, 7274557, 0, 0, 7274558, 0, 0, 7274559, 0, 0, 7274560, 0, 0, 7274561, 0, 0, 7274562, 0, 0, 7274563, 0, 0, 7274564, 0, 0, 7274565, 0, 0, 7274566, 0, 0, 7274567, 0, 0, 7274568, 0, 0, 7274569, 0, 0, 7274570, 0, 0, 7274571, 0, 0, 7274572, 0, 0, 7274573, 0, 0, 7274574, 0, 0, 7274575, 0, 0, 7274576, 0, 0, 7274577, 0, 0, 7274578, 0, 0, 7274579, 0, 0, 7274580, 0, 0, 7274581, 0, 0, 7274582, 0, 0, 7274583, 0, 0, 7274584, 0, 0, 7274585, 0, 0, 7274586, 0, 0, 7274587, 0, 0, 7274588, 0, 0, 7274589, 0, 0, 7274590, 0, 0, 7274591, 0, 0, 7274592, 0, 0, 7274593, 0, 0, 7274594, 0, 0, 7274595, 0, 0, 7274596, 0, 0, 7274597, 0, 0, 7274598, 0, 0, 7274599, 0, 0, 7274600, 0, 0, 7274601, 0, 0, 7274602, 0, 0, 7274603, 0, 0, 7274604, 0, 0, 7274605, 0, 0, 7274606, 0, 0, 7274607, 0, 0, 7274608, 0, 0, 7274609, 0, 0, 7274610, 0, 0, 7274611, 0, 0, 7274612, 0, 0, 7274613, 0, 0, 7274614, 0, 0, 7274615, 0, 0, 7274616, 0, 0, 7274617, 0, 0, 7274618, 0, 0, 7274619, 0, 0, 7274620, 0, 0, 7274621, 0, 0, 7274622, 0, 0, 7274623, 0, 0, 7274624, 0, 0, 7274625, 0, 0, 7274626, 0, 0, 7274627, 0, 0, 7274628, 0, 0, 7274629, 0, 0, 7274630, 0, 0, 7274631, 0, 0, 7274632, 0, 0, 7274633, 0, 0, 7274634, 0, 0, 7274635, 0, 0, 7274636, 0, 0, 7274637, 0, 0, 7274638, 0, 0, 7274639, 0, 0, 7274640, 0, 0, 7274641, 0, 0, 7274642, 0, 0, 7274643, 0, 0, 7274644, 0, 0, 7274645, 0, 0, 7274646, 0, 0, 7274647, 0, 0, 7274648, 0, 0, 7274649, 0, 0, 7274650, 0, 0, 7274651, 0, 0, 7274652, 0, 0, 7274653, 0, 0, 7274654, 0, 0, 7274655, 0, 0, 7274656, 0, 0, 7274657, 0, 0, 7274658, 0, 0, 7274659, 0, 0, 7274660, 0, 0, 7274661, 0, 0, 7274662, 0, 0, 7274663, 0, 0, 7274664, 0, 0, 7274665, 0, 0, 7274666, 0, 0, 7274667, 0, 0, 7274668, 0, 0, 7274669, 0, 0, 7274670, 0, 0, 7274671, 0, 0, 7274672, 0, 0, 7274673, 0, 0, 7274674, 0, 0, 7274675, 0, 0, 7274676, 0, 0, 7274677, 0, 0, 7274678, 0, 0, 7274679, 0, 0, 7274680, 0, 0, 7274681, 0, 0, 7274682, 0, 0, 7274683, 0, 0, 7274684, 0, 0, 7274685, 0, 0, 7274686, 0, 0, 7274687, 0, 0, 7274688, 0, 0, 7274689, 0, 0, 7274690, 0, 0, 7274691, 0, 0, 7274692, 0, 0, 7274693, 0, 0, 7274694, 0, 0, 7274695, 0, 0, 7274696, 0, 0, 7274697, 0, 0, 7274698, 0, 0, 7274699, 0, 0, 7274700, 0, 0, 7274701, 0, 0, 7274702, 0, 0 )
+
+[node name="RandomTileMapGen" parent="TileMap" instance=ExtResource( 8 )]
+
+[node name="Bullets" type="Node2D" parent="."]
+
+[node name="Players" type="Node2D" parent="."]
+
+[node name="DummyPlayer" parent="Players" instance=ExtResource( 7 )]
+position = Vector2( 5998.46, 3512.85 )
+
+[node name="Camera2D2" type="Camera2D" parent="Players/DummyPlayer"]
+rotation = 3.14159
+current = true
+limit_smoothed = true
+smoothing_enabled = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 514.347, 301 )
+script = ExtResource( 9 )
+move_speed = 0.054
+min_zoom = 1.0
+max_zoom = 2
+
+[node name="Pickups" type="Node2D" parent="."]
+script = ExtResource( 11 )
+
+[node name="Acid_Pickup" parent="Pickups" instance=ExtResource( 12 )]
+position = Vector2( 5855.72, 3648.45 )
+
+[node name="Destroy_Pickup" parent="Pickups" instance=ExtResource( 10 )]
+position = Vector2( 5783.3, 3471.22 )
+
+[node name="Speed_Pickup" parent="Pickups" instance=ExtResource( 4 )]
+position = Vector2( 5971.31, 3317.24 )
+
+[node name="Health_Pickup" parent="Pickups" instance=ExtResource( 5 )]
+position = Vector2( 8483.21, 2990.45 )
+
+[node name="Health_Pickup2" parent="Pickups" instance=ExtResource( 5 )]
+position = Vector2( 4434.71, 1559.34 )
+
+[node name="Health_Pickup4" parent="Pickups" instance=ExtResource( 5 )]
+position = Vector2( 2207.55, 1964.6 )
+
+[node name="Health_Pickup5" parent="Pickups" instance=ExtResource( 5 )]
+position = Vector2( 1064.62, 2270.47 )
+
+[node name="Health_Pickup6" parent="Pickups" instance=ExtResource( 5 )]
+position = Vector2( 514.347, 1935.6 )
+
+[node name="Health_Pickup3" parent="Pickups" instance=ExtResource( 5 )]
+position = Vector2( 6189.84, 3471.22 )
+
+[node name="SpawnPoints" type="Node2D" parent="."]
+
+[node name="0" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 215.203, 226.53 )
+
+[node name="1" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 921.22, 385.101 )
+
+[node name="2" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 2008.56, 464.386 )
+
+[node name="3" type="Position2D" parent="SpawnPoints"]
+position = Vector2( 1495.1, 604.079 )
+
+[node name="Welcome" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Welcome"]
+layer = 2
+
+[node name="TransitionPanel" type="ColorRect" parent="Welcome/CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Welcome"]
+
+[node name="Control" type="Control" parent="Welcome/CanvasLayer2"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" type="Button" parent="Welcome/CanvasLayer2/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -81.0
+margin_top = -150.913
+margin_right = 81.0
+margin_bottom = -80.9128
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Play"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuickJoinButton" type="Button" parent="Welcome/CanvasLayer2/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -86.0
+margin_top = 79.8929
+margin_right = 86.0
+margin_bottom = 146.893
+focus_mode = 0
+mouse_default_cursor_shape = 2
+text = "Quick Join"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Username" type="LineEdit" parent="Welcome/CanvasLayer2/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -153.5
+margin_top = -77.0575
+margin_right = 153.5
+margin_bottom = -39.0575
+placeholder_text = "Enter Your Username here..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Tween" type="Tween" parent="Welcome"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="CompanionPickup" parent="." instance=ExtResource( 13 )]
+position = Vector2( 6095.44, 3659.81 )
+
+[connection signal="pressed" from="Welcome/CanvasLayer2/Control/PlayButton" to="Welcome" method="_on_PlayButton_pressed"]
+[connection signal="text_changed" from="Welcome/CanvasLayer2/Control/Username" to="Welcome" method="_on_Username_text_changed"]

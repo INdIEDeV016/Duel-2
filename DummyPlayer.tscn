@@ -1,0 +1,206 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://DummyPlayer.gd" type="Script" id=1]
+[ext_resource path="res://Fonts/static/WorkSans-Light.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://ColorRect.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Box.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25, 25 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 22
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 2 )
+
+[sub_resource type="VisualShaderNodeFresnel" id=3]
+output_port_for_preview = 0
+default_input_values = [ 2, true, 3, 1.0 ]
+
+[sub_resource type="VisualShaderNodeInput" id=7]
+input_name = "uv"
+
+[sub_resource type="VisualShaderNodeVec3Uniform" id=8]
+uniform_name = "VectorUniform"
+
+[sub_resource type="VisualShader" id=4]
+code = "shader_type canvas_item;
+uniform vec3 VectorUniform;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Input:4
+	vec3 n_out4p0 = vec3(UV, 0.0);
+
+// VectorUniform:5
+	vec3 n_out5p0 = VectorUniform;
+
+// Fresnel:2
+	float n_in2p3 = 1.00000;
+	float n_out2p0 = pow(clamp(dot(n_out4p0, n_out5p0), 0.0, 1.0), n_in2p3);
+
+// Output:0
+	COLOR.a = n_out2p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -455, 71 )
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource( 3 )
+nodes/fragment/2/position = Vector2( 100, 160 )
+nodes/fragment/4/node = SubResource( 7 )
+nodes/fragment/4/position = Vector2( -180, 240 )
+nodes/fragment/5/node = SubResource( 8 )
+nodes/fragment/5/position = Vector2( -180, 180 )
+nodes/fragment/connections = PoolIntArray( 2, 0, 0, 1, 5, 0, 2, 1, 4, 0, 2, 0 )
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/VectorUniform = Vector3( 1.321, -0.385, 0 )
+
+[node name="DummyPlayer" type="KinematicBody2D"]
+rotation = -3.14159
+script = ExtResource( 1 )
+
+[node name="Box" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 1 )
+
+[node name="BulletContainer" type="GridContainer" parent="."]
+margin_left = -42.0
+margin_top = -22.0
+margin_right = 42.0
+margin_bottom = 22.0
+rect_clip_content = true
+custom_constants/vseparation = 10
+custom_constants/hseparation = 68
+columns = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" parent="BulletContainer" instance=ExtResource( 3 )]
+margin_right = 8.0
+margin_bottom = 8.0
+
+[node name="ColorRect2" type="ColorRect" parent="BulletContainer"]
+margin_left = 76.0
+margin_right = 84.0
+margin_bottom = 8.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="ColorRect3" type="ColorRect" parent="BulletContainer"]
+margin_top = 18.0
+margin_right = 8.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="ColorRect4" type="ColorRect" parent="BulletContainer"]
+margin_left = 76.0
+margin_top = 18.0
+margin_right = 84.0
+margin_bottom = 26.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="ColorRect5" type="ColorRect" parent="BulletContainer"]
+margin_top = 36.0
+margin_right = 8.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="ColorRect6" type="ColorRect" parent="BulletContainer"]
+margin_left = 76.0
+margin_top = 36.0
+margin_right = 84.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 8, 8 )
+
+[node name="Muzzle" type="Position2D" parent="."]
+position = Vector2( 4.19617e-05, 31.3516 )
+rotation = 1.5708
+__meta__ = {
+"_gizmo_extents_": 62.0
+}
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+position = Vector2( 1.90735e-06, -4.76837e-07 )
+scale = Vector2( 3.9, 2.5 )
+
+[node name="Name" type="Label" parent="."]
+margin_left = 39.0
+margin_top = -31.0
+margin_right = 117.0
+margin_bottom = -4.0
+rect_rotation = 180.0
+custom_fonts/font = SubResource( 2 )
+text = "Player"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Line2D" type="Line2D" parent="."]
+position = Vector2( 0.530331, 0 )
+points = PoolVector2Array( -3.54807, 24.2156, 23.5567, 24.2362, 23.5322, -23.9375, -24.6553, -24.1875, -24.6804, 24.3148, -0.546564, 24.2113, -0.472485, 10.6234 )
+width = 1.763
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+antialiased = true
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="Speed" type="Timer" parent="Timers"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Destroy" type="Timer" parent="Timers"]
+wait_time = 4096.0
+one_shot = true
+
+[node name="Acid" type="Timer" parent="Timers"]
+wait_time = 4096.0
+one_shot = true
+
+[node name="AreaFire" type="Timer" parent="Timers"]
+wait_time = 10.0
+one_shot = true
+
+[node name="RechargeTimer" type="Timer" parent="Timers"]
+wait_time = 0.7
+autostart = true
+
+[node name="Shield" type="Timer" parent="Timers"]
+wait_time = 10.0
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="Shield" type="Sprite" parent="."]
+visible = false
+material = SubResource( 5 )
+texture = ExtResource( 4 )
+
+[connection signal="viewport_entered" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_entered"]
+[connection signal="viewport_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_viewport_exited"]
+[connection signal="timeout" from="Timers/Speed" to="." method="_on_Speed_timeout"]
+[connection signal="timeout" from="Timers/Destroy" to="." method="_on_Destroy_timeout"]
+[connection signal="timeout" from="Timers/Acid" to="." method="_on_Acid_timeout"]
+[connection signal="timeout" from="Timers/AreaFire" to="." method="_on_360Fire_timeout"]
+[connection signal="timeout" from="Timers/RechargeTimer" to="." method="_on_RechargeTimer_timeout"]

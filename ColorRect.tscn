@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="ColorRect" type="ColorRect"]
+margin_right = 5.0
+margin_bottom = 5.0
+rect_min_size = Vector2( 8, 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

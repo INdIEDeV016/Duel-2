@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Box.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Pickups/Companion_Pickup.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, -0.607794, 0, 0, Vector2( 0.924686, 0.259091 ), -0.380227, -0.380227, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[node name="CompanionPickup" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 50.4424, -73.0397, 12.7974, -14.6057, -3.49668, -4.67945, -3.68397, 13.8621, -28.2187, 15.735, -28.406, 27.5341, 28.7169, 28.096, 26.0949, 9.92904, 26.2822, -9.73624, 57.372, -69.6685 )
+
+[node name="Icon" type="Node2D" parent="."]
+modulate = Color( 0.12549, 0.466667, 1, 1 )
+
+[node name="Box" type="Sprite" parent="Icon"]
+position = Vector2( -5.96046e-08, 21.2368 )
+scale = Vector2( 0.554551, 0.122465 )
+texture = ExtResource( 1 )
+
+[node name="TopPart" type="Node2D" parent="Icon"]
+position = Vector2( 0, 21.313 )
+rotation = 0.523598
+
+[node name="Box2" type="Sprite" parent="Icon/TopPart"]
+modulate = Color( 0.12549, 0.466667, 1, 1 )
+position = Vector2( 0.222725, -78.3193 )
+scale = Vector2( 0.0429595, 0.0460469 )
+texture = ExtResource( 1 )
+
+[node name="Box3" type="Sprite" parent="Icon/TopPart"]
+modulate = Color( 0.12549, 0.466667, 1, 1 )
+position = Vector2( 0.222725, -91.6827 )
+scale = Vector2( 0.0429595, 0.0460469 )
+texture = ExtResource( 1 )
+
+[node name="Box4" type="Sprite" parent="Icon/TopPart"]
+modulate = Color( 0.12549, 0.466667, 1, 1 )
+position = Vector2( 0.222725, -104.378 )
+scale = Vector2( 0.0429595, 0.0460469 )
+texture = ExtResource( 1 )
+
+[node name="Box" type="Polygon2D" parent="Icon/TopPart"]
+position = Vector2( 0.222725, -2.30861 )
+color = Color( 0.12549, 0.466667, 1, 1 )
+offset = Vector2( -50.0416, -43.5591 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 35.5915, 34.2419, 35.5915, 16.3729, 45.1481, 10.6206, 47.3308, -21.5243, 53.2835, -21.5243, 54.6725, 10.2237, 65.2331, 16.3729, 64.8126, 33.401, 56.1819, 35.9738, 54.7728, 46.3239, 43.9272, 46.3239, 43.8255, 35.9594 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Icon"]
+amount = 30
+lifetime = 2.87
+lifetime_randomness = 1.0
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 38.9
+scale_amount = 4.0
+scale_amount_curve = SubResource( 1 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( 31.5199, -38.3297, 13.9215, -11.0473, 2.87144, -11.2346, -6.30569, 3.74848, -0.499748, 9.36713, -3.04578, 14.9835, -27.6543, 15.0233, -27.5755, 26.5832, 27.5655, 27.0041, 27.5245, 15.1151, 21.0384, 15.1731, 28.3427, 4.12305, 22.5367, -6.36509, 36.5834, -35.3948 )
+width = 2.0
+default_color = Color( 0.835294, 0.862745, 1, 1 )
+joint_mode = 2
+
+[connection signal="body_entered" from="." to="." method="_on_CompanionPickup_body_entered"]

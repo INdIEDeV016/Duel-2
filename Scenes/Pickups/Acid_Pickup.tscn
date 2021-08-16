@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Box.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Pickups/Acid_Pickup.gd" type="Script" id=2]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, -0.607794, 0, 0, Vector2( 0.924686, 0.259091 ), -0.380227, -0.380227, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 28.2096
+
+[node name="Acid_Pickup" type="Area2D"]
+script = ExtResource( 2 )
+
+[node name="Icon" type="Node2D" parent="."]
+modulate = Color( 0, 0.239216, 0.0666667, 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Icon"]
+amount = 30
+lifetime = 2.87
+lifetime_randomness = 1.0
+local_coords = false
+draw_order = 1
+emission_shape = 2
+emission_rect_extents = Vector2( 1, 1 )
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 38.9
+scale_amount = 4.0
+scale_amount_curve = SubResource( 1 )
+
+[node name="Box" type="Polygon2D" parent="Icon"]
+position = Vector2( -19.7665, -18.3192 )
+scale = Vector2( 0.386146, 0.377737 )
+color = Color( 1, 1, 1, 0.439216 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 0, 0, 27.2647, 0, 28.1803, -33.7473, 76.1449, -33.4843, 76.7069, 0, 100, 0, 114.406, 11.4296, 121.673, 29.4446, 124.58, 48.2025, 121.855, 68.0747, 114.588, 86.4611, 102.597, 101.69, 87.6998, 113.019, 70.2588, 120.82, 51.9094, 123.234, 31.9249, 120.077, 14.3022, 112.834, 0.131374, 101.876, -11.6777, 86.0897, -19.1264, 68.0747, -21.4882, 48.7596, -19.1264, 29.6303, -12.041, 11.801 )
+
+[node name="Box2" type="Polygon2D" parent="."]
+position = Vector2( -15.4589, -14.1052 )
+scale = Vector2( 0.3, 0.3 )
+color = Color( 0, 0.14902, 0.0117647, 1 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 121.673, 29.4446, 124.58, 48.2025, 121.855, 68.0747, 114.588, 86.4611, 102.597, 101.69, 87.6998, 113.019, 70.2588, 120.82, 51.9094, 123.234, 31.9249, 120.077, 14.3022, 112.834, 0.131374, 101.876, -11.6777, 86.0897, -19.1264, 68.0747, -21.4882, 48.7596, -19.1264, 29.6303, -8.57338, 7.69539, 31.6936, 13.314, 54.1682, 35.7887, 97.5567, 38.598 )
+
+[node name="Box3" type="Polygon2D" parent="."]
+position = Vector2( -8.24575, 10.302 )
+rotation = 1.57079
+scale = Vector2( 0.3, 0.3 )
+offset = Vector2( -88.2449, -85.7182 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 121.855, 68.0747, 114.588, 86.4611, 102.597, 101.69, 87.6998, 113.019, 78.4956, 102.604, 93.7151, 91.0963, 104.48, 79.5889, 113.389, 69.1951 )
+
+[node name="Box4" type="Polygon2D" parent="."]
+position = Vector2( -12.9957, -7.19803 )
+rotation = 2.61799
+scale = Vector2( 0.3, 0.3 )
+offset = Vector2( -88.2449, -85.7182 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 125.648, 49.2967, 123.962, 68.0496, 114.588, 86.4611, 103.617, 80.4996, 110.312, 65.9338, 112.036, 51.0695 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PoolVector2Array( -9.18109, -31.1114, 9.30505, -30.6659, 9.7505, -19.0842, 17.9913, -19.0842, 24.4503, -13.5161, 27.125, -7.3125, 28.4375, 0, 27.25, 7.3125, 24.5625, 14.5625, 20.0625, 19.75, 14.3125, 23.9375, 7.375, 27.25, -0.0625, 28, -7.5625, 26.8125, -14.25, 24.375, -19.5625, 20.3125, -24.25, 14.4375, -27.125, 7.125, -27.875, -0.1875, -27.25, -7.4375, -24.75, -13.6875, -19.8125, -17.9375, -9.4375, -18.5625, -8.25, -31.125 )
+width = 2.0
+default_color = Color( 0.619608, 1, 0.776471, 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Acid_Pickup_body_entered"]

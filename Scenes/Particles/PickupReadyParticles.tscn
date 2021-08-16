@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[sub_resource type="Curve" id=1]
+max_value = 0.81
+_data = [ Vector2( 0, 0.490909 ), 0.0, -0.607794, 0, 0, Vector2( 0.864103, 0.463909 ), 0.0, -6.01185, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0, 0, 0, 0, 1, 1, 1, 1 )
+
+[node name="PickupReadyParticles" type="CPUParticles2D"]
+emitting = false
+amount = 34
+lifetime = 1.4
+one_shot = true
+local_coords = false
+emission_shape = 1
+emission_sphere_radius = 70.16
+flag_align_y = true
+direction = Vector2( 0, -1 )
+spread = 180.0
+gravity = Vector2( 0, 0 )
+orbit_velocity = 0.11
+orbit_velocity_random = 0.54
+radial_accel = -100.0
+tangential_accel = 1.31
+scale_amount = 4.0
+scale_amount_curve = SubResource( 1 )
+color_ramp = SubResource( 2 )

@@ -1,0 +1,7 @@
+[gd_resource type="OpenSimplexNoise" format=2]
+
+[resource]
+seed = 103
+period = 43.4
+persistence = 0.0
+lacunarity = 0.7
