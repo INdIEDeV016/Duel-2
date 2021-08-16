@@ -5,20 +5,14 @@ extends TileMap
 export(PackedScene) var tile_scene = preload("res://Scenes/Map/Tile.tscn")
 
 var tile_node
-#var tiles: Array
+
 var solid_area: Array
 var map: Array
 var map_borders: Rect2 = get_used_rect()
 
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-#	pass
 
 func _enter_tree() -> void:
 	$Tiles.position += cell_size / 2
-	
-#	for tile in get_used_rect().get_area():
-#		tiles.append(tile_scene.instance())
 
 
 
