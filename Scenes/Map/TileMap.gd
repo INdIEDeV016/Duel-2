@@ -1,7 +1,6 @@
 extends TileMap
 
 
-# Declare member variables here. Examples:
 export(PackedScene) var tile_scene = preload("res://Scenes/Map/Tile.tscn")
 
 var tile_node
