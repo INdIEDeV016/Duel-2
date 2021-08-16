@@ -4,7 +4,6 @@ extends TileMap
 export(PackedScene) var tile_scene = preload("res://Scenes/Map/Tile.tscn")
 
 var tile_node
-
 var solid_area: Array
 var map: Array
 var map_borders: Rect2 = get_used_rect()
