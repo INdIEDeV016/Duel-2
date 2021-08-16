@@ -11,5 +11,3 @@ func _ready() -> void:
 		if child is Pickup:
 			yield(get_tree(), "idle_frame")
 			child.position = tile_map.map_to_world(tile_map.map[randi() % tile_map.map.size()])
-	
-	
