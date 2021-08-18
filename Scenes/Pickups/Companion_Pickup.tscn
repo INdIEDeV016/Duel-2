@@ -53,6 +53,7 @@ polygon = PoolVector2Array( 35.5915, 34.2419, 35.5915, 16.3729, 45.1481, 10.6206
 amount = 30
 lifetime = 2.87
 lifetime_randomness = 1.0
+local_coords = false
 emission_shape = 2
 emission_rect_extents = Vector2( 1, 1 )
 direction = Vector2( 0, -1 )

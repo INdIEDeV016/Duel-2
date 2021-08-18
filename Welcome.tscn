@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Welcome.gd" type="Script" id=1]
 [ext_resource path="res://Theme.theme" type="Theme" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://PickupsManager.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/Pickups/Acid_Pickup.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Pickups/Companion_Pickup.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Pickups/Shield_Pickup.tscn" type="PackedScene" id=14]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -58,13 +59,13 @@ max_zoom = 2
 script = ExtResource( 11 )
 
 [node name="Acid_Pickup" parent="Pickups" instance=ExtResource( 12 )]
-position = Vector2( 5855.72, 3648.45 )
+position = Vector2( 5814.81, 3593.1 )
 
 [node name="Destroy_Pickup" parent="Pickups" instance=ExtResource( 10 )]
-position = Vector2( 5783.3, 3471.22 )
+position = Vector2( 5836.73, 3432.22 )
 
 [node name="Speed_Pickup" parent="Pickups" instance=ExtResource( 4 )]
-position = Vector2( 5971.31, 3317.24 )
+position = Vector2( 5998.46, 3332.24 )
 
 [node name="Health_Pickup" parent="Pickups" instance=ExtResource( 5 )]
 position = Vector2( 8483.21, 2990.45 )
@@ -82,7 +83,10 @@ position = Vector2( 1064.62, 2270.47 )
 position = Vector2( 514.347, 1935.6 )
 
 [node name="Health_Pickup3" parent="Pickups" instance=ExtResource( 5 )]
-position = Vector2( 6189.84, 3471.22 )
+position = Vector2( 6161.62, 3432.22 )
+
+[node name="CompanionPickup" parent="Pickups" instance=ExtResource( 13 )]
+position = Vector2( 6184.08, 3593.1 )
 
 [node name="SpawnPoints" type="Node2D" parent="."]
 
@@ -183,8 +187,10 @@ __meta__ = {
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
 
-[node name="CompanionPickup" parent="." instance=ExtResource( 13 )]
-position = Vector2( 6095.44, 3659.81 )
+[node name="Area2D" parent="." instance=ExtResource( 14 )]
+position = Vector2( 5998.46, 3664 )
+
+[node name="Companion" type="Node2D" parent="."]
 
 [connection signal="pressed" from="Welcome/CanvasLayer2/Control/PlayButton" to="Welcome" method="_on_PlayButton_pressed"]
 [connection signal="text_changed" from="Welcome/CanvasLayer2/Control/Username" to="Welcome" method="_on_Username_text_changed"]

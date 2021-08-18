@@ -7,7 +7,6 @@ var tile_destroy_particles = preload("res://Scenes/Particles/TileDestroyParticle
 
 var map: PoolVector2Array
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

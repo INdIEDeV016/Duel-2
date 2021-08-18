@@ -60,6 +60,7 @@ config/name="Duel 2"
 run/main_scene="res://Welcome.tscn"
 boot_splash/bg_color=Color( 0.027451, 0.027451, 0.027451, 1 )
 config/icon="res://icon.png"
+run/delta_sync_after_draw=true
 
 [autoload]
 
@@ -123,13 +124,20 @@ zoom_out={
 
 pointing/emulate_touch_from_mouse=true
 
+[logging]
+
+file_logging/enable_file_logging=true
+file_logging/max_log_files=10
+
+[physics]
+
+2d/thread_model=2
+
 [rendering]
 
 2d/options/use_nvidia_rect_flicker_workaround=true
 2d/snapping/use_gpu_pixel_snap=true
 threads/thread_model=2
-vram_compression/import_etc=true
-vram_compression/import_etc2=false
 quality/filters/anisotropic_filter_level=16
 quality/filters/use_nearest_mipmap_filter=true
 environment/default_clear_color=Color( 0, 0, 0, 1 )

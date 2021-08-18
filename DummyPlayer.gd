@@ -78,11 +78,8 @@ func shoot(_damage: float = 10):
 		var b = bullet_node.instance()
 		b.transform = $Muzzle.global_transform
 		b.speed += speed
-		b.damage = 10
-		if b.name == "NormalBullet":
-			b.modulate = color
 		b.color = color
-		get_node("../../Bullets").add_child(b)
+		$"../../Bullets".add_child(b)
 		bullets -= 1
 		container.remove_child(container.get_children()[0])
 	recharge_timer.paused = false

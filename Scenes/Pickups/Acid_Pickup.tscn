@@ -9,7 +9,7 @@ _data = [ Vector2( 0, 1 ), 0.0, -0.607794, 0, 0, Vector2( 0.924686, 0.259091 ), 
 [sub_resource type="CircleShape2D" id=2]
 radius = 28.2096
 
-[node name="Acid_Pickup" type="Area2D"]
+[node name="AcidPickup" type="Area2D"]
 script = ExtResource( 2 )
 
 [node name="Icon" type="Node2D" parent="."]
